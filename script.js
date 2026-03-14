@@ -28,8 +28,6 @@ container.addEventListener('scroll', () => {
 // ▲▲▲進行バーここまで▲▲▲
 
 // ▼▼▼言語選択ここから▼▼▼
-var current_language = 'de';
-
 const de_btn = document.querySelector('#de');
 const en_btn = document.querySelector('#en');
 const ja_btn = document.querySelector('#ja');
@@ -83,3 +81,15 @@ ja_btn.addEventListener('click', () => {
 })
 
 // ▲▲▲言語選択ここまで▲▲▲
+
+// ▼▼▼ナビバーここから▼▼▼
+const nav_btn=document.querySelector('#nav-btn');
+const nav=document.querySelector('.side-nav');
+nav_btn.addEventListener('click',()=>{
+    if(nav.classList.contains('active')){
+        nav.classList.remove('active');
+    }else{
+        nav.classList.add('active');
+    }
+})
+// ▲▲▲ナビバーここまで▲▲▲

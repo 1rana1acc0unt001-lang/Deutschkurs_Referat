@@ -10,6 +10,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     overflow: hidden; /* スクロールバーを隠す */
+    scroll-behavior: smooth;
 }
 
 /* .presentation-container {
@@ -34,15 +35,58 @@ body {
     pointer-events: none;
 } */
 
+nav.side-nav .nav-btn {
+    position: fixed;
+    bottom: 50vh;
+    left: .5rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    z-index: 1;
+    transform: translateX(0) rotate(180deg);
+}
+
+nav.side-nav .nav-btn .nav-btn-icon{
+    position: absolute;
+    background: #f8fafc;
+    width:1.5rem;
+    height: .3rem;
+    border-radius: 20%;
+    border: 0;
+    transform-origin: left;
+}
+
+nav.side-nav .nav-btn #nav-btn-icon-1 {
+    transform: translateX(calc(-50% - .05rem)) translateY(calc(-50% - .05rem)) rotate(30deg);
+}
+
+nav.side-nav .nav-btn #nav-btn-icon-2 {
+    transform: translateX(calc(-50% - .05rem)) translateY(calc(-50% + .05rem)) rotate(-30deg);
+}
+
+nav.side-nav .nav-content {
+    padding-right: 10px;
+    position: fixed;
+    width:15rem;
+    top: 0%;
+    left: 0;
+    background-color: #0f172a;
+    transform: translateX(-100%);
+}
+
+nav.side-nav.active .nav-btn {
+    transform: translateX(12rem) rotate(0deg);
+}
+
+nav.side-nav.active .nav-content {
+    transform: translateX(0);
+}
+
 /* アクティブなスライド */
 .slide.active {
     opacity: 1;
     transform: translateX(0);
     pointer-events: auto;
-}
-
-.de.active {
-
 }
 
 /* コンテンツのアニメーション */
