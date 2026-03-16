@@ -35,6 +35,10 @@ body {
     pointer-events: none;
 } */
 
+nav.side-nav {
+    overflow-y: scroll;
+}
+
 nav.side-nav .nav-btn {
     position: fixed;
     background: var(--primary-color);
@@ -90,22 +94,93 @@ nav.side-nav.active .nav-content {
     transform: translateX(0);
 }
 
-nav.side-nav .nav-content ul li a{
-    background-color: transparent;
+nav.side-nav .nav-content ul {
+    margin: 0;
+    padding: 1rem;
 }
 
-/* アクティブなスライド */
+nav.side-nav .nav-content ul li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav.side-nav .nav-content ul li a {
+    background-color: transparent;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+nav.side-nav .nav-content ul li a:hover {
+    background-color: transparent;
+    text-decoration: underline;
+    color: var(--text-color);
+}
+
+nav.side-nav .nav-content ul li a h6 {
+    font-size: 1rem;
+    margin: 0;
+}
+
+nav.side-nav .nav-content ul li a p {
+    font-size: .8rem;
+    font-weight: 200;
+}
+
+/* スライド設定 */
 .slide.active {
     opacity: 1;
     transform: translateX(0);
     pointer-events: auto;
 }
 
-/* コンテンツのアニメーション */
-.content h1 {
-    font-size: 4rem;
+#slide1 .content h1 {
+    font-size: 5rem;
     margin-bottom: 1rem;
     color: var(--primary-color);
+    text-align: center;
+}
+
+.content h2 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.slide:not(#slide1) .content h2 {
+    position: absolute;
+    top: 5%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 4rem;
+    margin: 0;
+}
+
+.content h3 {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.content p {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 200;
+}
+
+.content p strong {
+    font-weight: 500;
+    font-size: 2rem;
+}
+
+.content ul {
+    font-size: 3rem;
+    font-weight: 200;
+}
+
+@media screen and (max-width:1000px) {
+    .content h1 {
+        font-size: 3rem;
+    }
 }
 
 .fade-in-item {
