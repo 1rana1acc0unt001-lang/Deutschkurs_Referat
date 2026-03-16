@@ -37,13 +37,18 @@ body {
 
 nav.side-nav .nav-btn {
     position: fixed;
+    background: var(--primary-color);
+    border: none;
+    color: white;
     bottom: 50vh;
     left: .5rem;
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
     z-index: 1;
-    transform: translateX(0) rotate(180deg);
+    transform: translateX(0) rotate(-540deg);
+    transition: transform 0.5s ease-in-out;
+    cursor: pointer;
 }
 
 nav.side-nav .nav-btn .nav-btn-icon{
@@ -68,10 +73,13 @@ nav.side-nav .nav-content {
     padding-right: 10px;
     position: fixed;
     width:15rem;
-    top: 0%;
+    top: 0;
     left: 0;
     background-color: #0f172a;
+    background-color: rgba(15,23,42,0.9);
     transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out;
+    overflow-y: scroll;
 }
 
 nav.side-nav.active .nav-btn {
@@ -80,6 +88,10 @@ nav.side-nav.active .nav-btn {
 
 nav.side-nav.active .nav-content {
     transform: translateX(0);
+}
+
+nav.side-nav .nav-content ul li a{
+    background-color: transparent;
 }
 
 /* アクティブなスライド */
@@ -113,7 +125,7 @@ nav.side-nav.active .nav-content {
 .slide.active .fade-in-item:nth-child(3) { transition-delay: 0.7s; }
 
 /* コントロールUI */
-.controls {
+/* .controls {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -124,16 +136,7 @@ nav.side-nav.active .nav-content {
     padding: 10px 20px;
     border-radius: 30px;
     backdrop-filter: blur(5px);
-}
-
-button {
-    background: var(--primary-color);
-    border: none;
-    color: white;
-    padding: 8px 16px;
-    border-radius: 5px;
-    cursor: pointer;
-}
+} */
 
 /* 親コンテナ：スクロールをスナップさせる */
 .presentation-container {
@@ -170,18 +173,36 @@ button {
     position: fixed;
     left: 10px;
     bottom: 10px;
-    
+}
+
+.language-choice .language-btn-bg {
+    position: absolute;
+    background-color: var(--primary-color);
+    margin: .2rem;
+    margin-bottom: .5rem;
+    width: 3rem;
+    height: 2rem;
+    border: none;
+    border-radius: .4rem;
+    transform: translateX(0rem);
+    transition: transform 0.3s ease-in-out;
 }
 
 .language-choice .language-btn {
+    position: relative;
     background-color: transparent;
+    margin: .2rem;
+    margin-bottom: .5rem;
+    width: 3rem;
+    height: 2rem;
+    border: none;
+    color: white;
+    text-align: center;
+    border-radius: .4rem;
+    cursor: pointer;
 }
 
-.language-choice .language-btn.active {
-    background-color: #2563eb;
-}
-
-.slide .de:not(.active),.en:not(.active),.ja:not(.active) {
+.de:not(.active),.en:not(.active),.jp:not(.active) {
     display: none;
+    opacity: 0;
 }
-

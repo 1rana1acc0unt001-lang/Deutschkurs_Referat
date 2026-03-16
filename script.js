@@ -28,64 +28,39 @@ container.addEventListener('scroll', () => {
 // ▲▲▲進行バーここまで▲▲▲
 
 // ▼▼▼言語選択ここから▼▼▼
-const de_btn = document.querySelector('#de');
-const en_btn = document.querySelector('#en');
-const ja_btn = document.querySelector('#ja');
-const contents ={
+const btns = {
+    de : document.querySelector('#de'),
+    en : document.querySelector('#en'),
+    jp : document.querySelector('#jp')
+};
+const contents = {
     de : document.querySelectorAll('.de'),
     en : document.querySelectorAll('.en'),
-    ja : document.querySelectorAll('.ja')
+    jp : document.querySelectorAll('.jp')
 };
+const btn_bg = document.querySelector('.language-btn-bg');
 
-de_btn.addEventListener('click', () => {
-    de_btn.classList.add('active');
-    en_btn.classList.remove('active');
-    ja_btn.classList.remove('active');
-    contents.de.forEach(content=>{
-        content.classList.add('active');
-    });
-    contents.en.forEach(content=>{
-        content.classList.remove('active');
-    });
-    contents.ja.forEach(content=>{
-        content.classList.remove('active');
-    });
-});
-en_btn.addEventListener('click', () => {
-    de_btn.classList.remove('active');
-    en_btn.classList.add('active');
-    ja_btn.classList.remove('active');
-    contents.de.forEach(content=>{
-        content.classList.remove('active');
-    });
-    contents.en.forEach(content=>{
-        content.classList.add('active');
-    });
-    contents.ja.forEach(content=>{
-        content.classList.remove('active');
-    });
-});
-ja_btn.addEventListener('click', () => {
-    de_btn.classList.remove('active');
-    en_btn.classList.remove('active');
-    ja_btn.classList.add('active');
-    contents.de.forEach(content=>{
-        content.classList.remove('active');
-    });
-    contents.en.forEach(content=>{
-        content.classList.remove('active');
-    });
-    contents.ja.forEach(content=>{
-        content.classList.add('active');
+Object.keys(btns).forEach(key => {
+    btns[key].addEventListener('click', () => {
+        const ind=['de','en','jp'].indexOf(key);
+        btn_bg.style.transform='translateX('+ind*3.675+'rem)';
+
+        Object.values(contents).forEach(content => {
+            content.forEach(con => {
+                con.classList.remove('active');
+            });
+        });
+        contents[key].forEach(con => {
+            con.classList.add('active');
+        });
     });
 })
-
 // ▲▲▲言語選択ここまで▲▲▲
 
 // ▼▼▼ナビバーここから▼▼▼
 const nav_btn=document.querySelector('#nav-btn');
 const nav=document.querySelector('.side-nav');
-nav_btn.addEventListener('click',()=>{
+nav_btn.addEventListener('click',() => {
     if(nav.classList.contains('active')){
         nav.classList.remove('active');
     }else{
@@ -93,3 +68,11 @@ nav_btn.addEventListener('click',()=>{
     }
 })
 // ▲▲▲ナビバーここまで▲▲▲
+
+const full_screen_btns=document.querySelectorAll('.full-screen-btn');
+const body=document.querySelector('body');
+full_screen_btns.forEach(btn => {
+    btn.addEventListener('click',()=>{
+        body.webkitRequestFullscreen()
+    })
+})
