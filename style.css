@@ -189,19 +189,15 @@ nav.side-nav .nav-content ul li a p {
     font-weight: 200;
 }
 
-.sticky-area {
-    position: sticky;
-    top: 0;
-    width: 100vw;
-    height: 10vh;
-    z-index: 100;
+.img-area {
+    margin: auto;
+    width: 50vw;
+    height: auto;
 }
 
-.sticky-area .content {
-    position: sticky;
-    background-color: red;
-    height: 100%;
-    width: 100%;
+.img-area img#pro-img {
+    width: 50vw;
+    height: auto;
 }
 
 /* スライド設定 */
@@ -311,6 +307,7 @@ nav.side-nav .nav-content ul li a p {
 .flex-box .flex-item {
     border: solid #f8fafc 3px;
     padding: .5rem;
+    width: 30vw;
 }
 
 .progress-bar {
