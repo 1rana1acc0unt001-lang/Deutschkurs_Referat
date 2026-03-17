@@ -389,3 +389,12 @@ nav.side-nav .nav-content ul li a p {
     pointer-events: auto;
     z-index: 51;
 }
+
+@media  screen and ( max-width:500px ) {
+    html {
+        font-size: 8px
+    }
+    .img-area {
+        display: none;
+    }
+}
