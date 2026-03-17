@@ -390,7 +390,7 @@ nav.side-nav .nav-content ul li a p {
     z-index: 51;
 }
 
-@media  screen and ( max-width:900px ) {
+@media  screen and ( max-width:1080px ) {
     html {
         font-size: 2vh
     }
