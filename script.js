@@ -76,3 +76,53 @@ full_screen_btns.forEach(btn => {
         body.webkitRequestFullscreen()
     })
 })
+
+const canvas = document.getElementById('drawCanvas');
+const ctx = canvas.getContext('2d');
+const clearBtn = document.getElementById('clearBtn');
+
+// Canvasのサイズを画面に合わせる
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+let drawing = false;
+
+function startDrawing(e) {
+    drawing = true;
+    draw(e);
+}
+
+function stopDrawing() {
+    drawing = false;
+    ctx.beginPath(); // 線をリセット
+}
+
+function draw(e) {
+    if (!drawing) return;
+
+    ctx.lineWidth = 3;
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = '#2563eb'; // --primary-color に合わせる
+
+    // スクロールコンテナがある場合、座標がズレないよう clientX/Y を使用
+    ctx.lineTo(e.clientX, e.clientY);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(e.clientX, e.clientY);
+}
+
+// マウスイベント
+canvas.addEventListener('mousedown', startDrawing);
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mouseup', stopDrawing);
+
+// クリア機能
+clearBtn.addEventListener('click', () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+});
+
+// canvas設定ここまで
