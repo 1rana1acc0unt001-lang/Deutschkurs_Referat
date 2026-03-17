@@ -390,9 +390,9 @@ nav.side-nav .nav-content ul li a p {
     z-index: 51;
 }
 
-@media  screen and ( max-width:500px ) {
+@media  screen and ( max-width:900px ) {
     html {
-        font-size: 8px
+        font-size: 2vh
     }
     .img-area {
         display: none;
